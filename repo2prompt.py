@@ -153,7 +153,7 @@ class Repo2Prompt:
                          exclude: Optional[List[str]] = None,
                          count_tokens: bool = False,
                          encoding: Optional[str] = None,
-                         output_file: Optional[str] = None,
+                         output: Optional[str] = None,
                          output_format: Optional[str] = None,
                          diff: bool = False,
                          line_number: bool = False,
@@ -183,8 +183,8 @@ class Repo2Prompt:
         if encoding:
             cmd.extend(["--encoding", encoding])
             
-        if output_file:
-            cmd.extend(["--output-file", output_file])
+        if output:
+            cmd.extend(["--output", output])
             
         if output_format:
             cmd.extend(["-O", output_format])
@@ -235,7 +235,7 @@ class Repo2Prompt:
                         exclude: Optional[List[str]] = None,
                         count_tokens: bool = False,
                         encoding: Optional[str] = None,
-                        output_file: Optional[str] = None,
+                        output: Optional[str] = None,
                         output_format: Optional[str] = None,
                         diff: bool = False,
                         line_number: bool = False,
@@ -256,7 +256,7 @@ class Repo2Prompt:
             exclude: Optional list of glob patterns to exclude files
             count_tokens: Whether to count tokens in the generated prompt
             encoding: Optional tokenizer encoding (cl100k, p50k, etc.)
-            output_file: Optional path to save the generated prompt
+            output: Optional path to save the generated prompt
             output_format: Optional output format (json)
             diff: Whether to include Git diff output in the generated prompt
             line_number: Whether to add line numbers to source code blocks
@@ -286,7 +286,7 @@ class Repo2Prompt:
             exclude=exclude,
             count_tokens=count_tokens,
             encoding=encoding,
-            output_file=output_file,
+            output=output,
             output_format=output_format,
             diff=diff,
             line_number=line_number,
@@ -324,7 +324,7 @@ def main():
     parser.add_argument("--tokens", action="store_true", help="Count tokens in the generated prompt")
     parser.add_argument("--encoding", choices=["cl100k", "p50k", "p50k_edit", "r50k_base", "o200k_base"], 
                        help="Tokenizer encoding")
-    parser.add_argument("-o", "--output-file", help="Path to save the generated prompt")
+    parser.add_argument("-o", "--output", help="Path to save the generated prompt")
     parser.add_argument("-O", "--output-format", choices=["json"], help="Output format")
     parser.add_argument("--diff", action="store_true", help="Include Git diff output in the generated prompt")
     parser.add_argument("--line-number", action="store_true", help="Add line numbers to source code blocks")
@@ -352,7 +352,7 @@ def main():
                 exclude=exclude,
                 count_tokens=args.tokens,
                 encoding=args.encoding,
-                output_file=args.output_file,
+                output=args.output,
                 output_format=args.output_format,
                 diff=args.diff,
                 line_number=args.line_number,
