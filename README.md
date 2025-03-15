@@ -47,7 +47,7 @@ cargo install code2prompt
 
 2. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/repo2prompt.git
+git clone https://github.com/kunjucompany/repo2prompt.git
 cd repo2prompt
 ```
 
