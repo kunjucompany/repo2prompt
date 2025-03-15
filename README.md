@@ -1,16 +1,21 @@
 # repo2prompt
 
-A wrapper around [code2prompt](https://github.com/mufeedvh/code2prompt) that allows you to generate LLM prompts from any GitHub repository.
+A very simple wrapper around [code2prompt](https://github.com/mufeedvh/code2prompt) that allows you to generate LLM prompts from any GitHub repository.
 
 The primary use of this is to parse examples and docs of packages to a text file for passing to LLMs with large context. 
 
 ## Example usage
 
 For generating prompt for example usages of pydantic-ai usages. 
- 
+
 ```bash
 repo2prompt https://github.com/pydantic/pydantic-ai -s docs/examples -o pydantic-examples.txt
 ```
+
+⚠️ **WARNING: EARLY DEVELOPMENT** ⚠️
+
+This project is in very early development stages. Most features are untested and likely to break. Use at your own risk. Bug reports and contributions are welcome, but expect significant changes and instability.
+
 
 ## Features
 
